@@ -1,4 +1,5 @@
-<?php 
+<?php  get_header();?>
 
-echo('Hello');
-?>
+
+
+<?php  get_footer();?>
