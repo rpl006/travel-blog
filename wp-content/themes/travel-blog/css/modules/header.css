@@ -1,42 +1,26 @@
-/*
-    Theme Name: The Trvel Blog
-    Theme URI:
-    Author: Ram Lamichhane
-    Description: Theme Using Bootstrap 
-    version: 1.0
-    License: GNU  General Public License
-
-*/
-
 nav.main-navigation{
     background-color: #008fd1;
 }
-
 nav.main-navigation ul{
     margin-top: 25px;
 }
-
 nav.main-navigation ul li{
     margin-bottom: 10px;
     text-align: center;
 }
-
 nav.main-navigation ul li a{
     color: #fff;
     text-transform: uppercase;
     font-size: 16px;
     padding: 10px 0;
 }
-
 nav.main-navigation ul li a:hover{
    background-color: transparent;
 }
-
 .navbar-toggle{
     border: 1px solid #fff;
 
 }
-
 .navbar-toggle .icon-bar{
     background-color: #fff;
 }
