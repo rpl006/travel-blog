@@ -1,3 +1,6 @@
-<script id="nf-tmpl-field-number" type="text/template">
-	<input id="nf-field-<%= id %>" name="nf-field-<%= id %>" class="<%= renderClasses() %> nf-element" type="number" value="<%= value %>" min="<%= num_min %>" max="<%= num_max %>" step="<%= num_step %>" <%= renderPlaceholder() %>>
+<script id="tmpl-nf-field-number" type="text/template">
+	<input id="nf-field-{{{ data.id }}}" name="nf-field-{{{ data.id }}}" aria-invalid="false" aria-describedby="nf-error-{{{ data.id }}}" class="{{{ data.renderClasses() }}} nf-element"
+	       aria-labelledby="nf-label-field-{{{ data.id }}}"
+			{{{ data.maybeRequired() }}}
+	       type="number" value="{{{ data.value }}}" min="{{{ data.num_min }}}" max="{{{ data.num_max }}}" step="{{{ data.num_step }}}" {{{ data.renderPlaceholder() }}}>
 </script>

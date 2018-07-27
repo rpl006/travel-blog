@@ -16,6 +16,9 @@ class NF_Fields_CreditCardExpiration extends NF_Abstracts_Input
 
     protected $_test_value = '01/2025';
 
+    protected $_settings_exclude = array( 'input_limit_set', 'disable_input' );
+
+
     public function __construct()
     {
         parent::__construct();
@@ -23,6 +26,12 @@ class NF_Fields_CreditCardExpiration extends NF_Abstracts_Input
         $this->_nicename = __( 'Credit Card Expiration', 'ninja-forms' );
 
         add_filter( 'nf_sub_hidden_field_types', array( $this, 'hide_field_type' ) );
+        
+        $this->_settings[ 'mask' ] = array(
+            'name' => 'mask',
+            'value' => '99/9999',
+        );
+        
     }
 
     function hide_field_type( $field_types )

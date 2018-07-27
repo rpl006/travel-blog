@@ -1,0 +1,47 @@
+body{
+    background-color: #f2f2f2; 
+}
+section.content{
+    padding: 20px;
+}
+section.content .entry{
+    margin-bottom: 20px;
+}
+div.entry-content{
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    min-height: 260px;
+}
+div.entry-content h3{
+    font-family: 'Libre Baskersville', serif;
+    line-height: 24px;
+    margin: 0;
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: 700
+
+}
+div.entry-content p{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+div.entry-content span{
+    color: #db008d;
+    font-weight: bold;
+}
+ .btn.btn-success{
+    background-color: #008fd1;
+    color: #ffffff;
+    border: none;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 15px 50px;
+    margin-top: 20px;
+    transition: all .3s ease;
+
+}
+.btn.btn-success:hover{
+    background-color: #0070a3;
+}

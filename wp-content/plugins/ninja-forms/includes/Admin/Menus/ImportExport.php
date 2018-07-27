@@ -4,43 +4,65 @@ final class NF_Admin_Menus_ImportExport extends NF_Abstracts_Submenu
 {
     public $parent_slug = 'ninja-forms';
 
-    public $page_title = 'Import / Export';
+    public $menu_slug = 'nf-import-export';
 
     public function __construct()
     {
-        add_action( 'plugins_loaded', array( $this, 'import_form_listener' ) );
-        add_action( 'plugins_loaded', array( $this, 'export_form_listener' ) );
+        add_action( 'init', array( $this, 'import_form_listener' ), 0 );
+        add_action( 'init', array( $this, 'export_form_listener' ), 0 );
 
-        add_action( 'plugins_loaded', array( $this, 'import_fields_listener' ) );
-        add_action( 'plugins_loaded', array( $this, 'export_fields_listener' ) );
+        add_action( 'init', array( $this, 'import_fields_listener' ), 0 );
+        add_action( 'init', array( $this, 'export_fields_listener' ), 0 );
 
         add_filter( 'ninja_forms_before_import_fields', array( $this, 'import_fields_backwards_compatibility' ) );
 
         parent::__construct();
     }
 
+    public function get_page_title()
+    {
+        return __( 'Import / Export', 'ninja-forms' );
+    }
+
     public function import_form_listener()
     {
-        if( ! current_user_can( apply_filters( 'ninja_forms_admin_import_form_capabilities', 'manage_options' ) ) ) return;
+        $capability = apply_filters( 'ninja_forms_admin_import_export_capabilities', 'manage_options' );
+        $capability = apply_filters( 'ninja_forms_admin_import_form_capabilities',   $capability      );
+        if( ! current_user_can( $capability ) ) return;
 
         if( ! isset( $_FILES[ 'nf_import_form' ] ) || ! $_FILES[ 'nf_import_form' ] ) return;
 
         $this->upload_error_check( $_FILES[ 'nf_import_form' ] );
 
-        $import = file_get_contents( $_FILES[ 'nf_import_form' ][ 'tmp_name' ] );
+        $data = file_get_contents( $_FILES[ 'nf_import_form' ][ 'tmp_name' ] );
 
-        $data = unserialize( base64_decode( $import ) );
-
-        if( ! $data ) {
-            $data = unserialize( $import );
+        // Check to see if the user turned off UTF-8 encoding
+        $decode_utf8 = TRUE;
+        if( $_REQUEST[ 'nf_import_form_turn_off_encoding' ] ) {
+        	$decode_utf8 = FALSE;
         }
 
-        Ninja_Forms()->form()->import_form( $data );
+        $import = Ninja_Forms()->form()->import_form( $data, $decode_utf8 );
+
+        if( ! $import ){
+            
+            $err_msg = '';
+            if ( function_exists( 'json_last_error_msg' ) ) {
+                $err_msg = json_last_error_msg();
+            }
+
+            wp_die(
+                __( 'There uploaded file is not a valid format.', 'ninja-forms' ) . ' ' . $err_msg,
+                __( 'Invalid Form Upload.', 'ninja-forms' )
+            );
+        }
     }
 
     public function export_form_listener()
     {
-        if( ! current_user_can( apply_filters( 'ninja_forms_admin_export_form_capabilities', 'manage_options' ) ) ) return;
+        $capability = apply_filters( 'ninja_forms_admin_import_export_capabilities', 'manage_options' );
+        $capability = apply_filters( 'ninja_forms_admin_export_form_capabilities',   $capability      );
+        if( ! current_user_can( $capability ) ) return;
 
         if( isset( $_REQUEST[ 'nf_export_form' ] ) && $_REQUEST[ 'nf_export_form' ] ){
             $form_id = $_REQUEST[ 'nf_export_form' ];
@@ -107,8 +129,15 @@ final class NF_Admin_Menus_ImportExport extends NF_Abstracts_Submenu
         wp_enqueue_script('postbox');
         wp_enqueue_script('jquery-ui-draggable');
 
+	    wp_enqueue_style( 'nf-admin-settings', Ninja_Forms::$url . 'assets/css/admin-settings.css' );
+
         wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false );
         wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false );
+
+	    wp_register_script( 'ninja_forms_admin_import_export',
+		    Ninja_Forms::$url . 'assets/js/admin-import-export.js', array( 'jquery' ), FALSE, TRUE );
+
+	    wp_enqueue_script( 'ninja_forms_admin_import_export' );
 
         Ninja_Forms::template( 'admin-menu-import-export.html.php', compact( 'tabs', 'active_tab' ) );
     }
@@ -157,7 +186,26 @@ final class NF_Admin_Menus_ImportExport extends NF_Abstracts_Submenu
 
     public function template_export_forms()
     {
-        $forms = Ninja_Forms()->form()->get_forms();
+    	/**
+	     * we're gonna create a new array so that we can select a form in the
+	     * export drop down based on a url parameter
+	     **/
+    	$formObjs = Ninja_Forms()->form()->get_forms();
+    	$forms = array();
+    	foreach( $formObjs as $form ) {
+    		$selected = '';
+
+    		if( isset( $_REQUEST[ 'exportFormId' ] )
+		        && $form->get_id() == $_REQUEST[ 'exportFormId' ] ) {
+    			$selected = 'selected';
+		    }
+    		$forms[] = array(
+    			'id' => $form->get_id(),
+			    'title' => $form->get_setting( 'title' ),
+			    'selected' => $selected,
+		    );
+	    }
+
         Ninja_Forms::template( 'admin-metabox-import-export-forms-export.html.php', compact( 'forms' ) );
     }
 
@@ -367,5 +415,10 @@ final class NF_Admin_Menus_ImportExport extends NF_Abstracts_Submenu
         );
         $message = Ninja_Forms()->template( 'admin-wp-die.html.php', $args );
         wp_die( $message, $args[ 'title' ], array( 'back_link' => TRUE ) );
+    }
+
+    public function get_capability()
+    {
+        return apply_filters( 'ninja_forms_admin_import_export_capabilities', $this->capability );
     }
 }
