@@ -6,9 +6,11 @@
     <title>Page Title</title>
     <?php  wp_head();?>
 </head>
-<body>
+<body <?php body_class() ?>>
 
-<header>
+<?php $featured = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );?>
+<?php $featuredImage = $featured[0]; ?>
+<header class="site-header" style="background-image: url(<?php echo $featuredImage ?>)">
     <nav class="main-navigation">
     <div class="container">
             <div class="row">
@@ -32,9 +34,20 @@
                         ));
                     ?>
                 </div>
+            </div><!--row-->
+        </div><!--container-->
+    </nav><!--.main-navigation-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="page-title">
+                    <?php $description = get_bloginfo( 'description', 'display') ?>
+                    <h1 class="title">
+                        <span><?php echo $description ?></span>
+                    </h1>
+                </div>
             </div>
         </div>
-    </nav>
-    
+    </div>
 </header>
     
