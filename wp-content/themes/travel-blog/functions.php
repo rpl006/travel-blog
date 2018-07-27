@@ -2,6 +2,7 @@
 
 function site_styles(){
     wp_enqueue_style( 'normalize', get_stylesheet_directory_uri() . '/css/normalize.css' );
+    wp_enqueue_style( 'fontAwesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
     wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
     wp_enqueue_style('site_style_css', get_stylesheet_uri());
     wp_enqueue_style( 'raleway-font', 'https://fonts.googleapis.com/css?family=Raleway:900');
