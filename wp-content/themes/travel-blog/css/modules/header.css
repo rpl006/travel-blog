@@ -83,4 +83,7 @@ div.page-title h1 span{
     .home div.page-title{
         margin-top: 240px;
     }
+    div.page-title{
+        margin-top: 100px;
+    }
 }
