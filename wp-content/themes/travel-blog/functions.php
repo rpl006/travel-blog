@@ -21,9 +21,24 @@ function site_styles(){
         register_nav_menu( 'headerMenu', "Main Menu");
         add_theme_support('post-thumbnails');
         add_image_size( 'homePagePost', 750, 490, true );
+
     }
 
     add_action( 'after_setup_theme', 'site_features');
+
+    function site_widgets(){
+        register_sidebar( array(
+            'name'=> ('Footer Widget'),
+            'id'=>'footer_widget',
+            'description' =>'Widget For the Footer',
+            'before_widget'=> '<div id="%1$s" class="widget col-sm-6 %2$s">',
+            'after_widget' => '</div>',
+            'before_title'=> '<h3 class="widget-title">',
+            'after_title'=> '</h3>'
+        ));
+    }
+
+    add_action( 'widgets_init', 'site_widgets');
 
     
 
