@@ -19,6 +19,7 @@ function site_styles(){
     function site_features(){
         add_theme_support('title-tag');
         register_nav_menu( 'headerMenu', "Main Menu");
+        register_nav_menu('socialMenu',"Social Menu");
         add_theme_support('post-thumbnails');
         add_image_size( 'homePagePost', 750, 490, true );
 
