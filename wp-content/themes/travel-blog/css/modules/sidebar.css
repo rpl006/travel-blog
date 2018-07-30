@@ -11,3 +11,18 @@
     padding: 20px;
     text-align: justify;
 }
+
+aside.sidebar-widget{
+    padding-top: 20px;
+}
+aside.sidebar-widget h3{
+    font-size: 30px;
+
+}
+aside.sidebar-widget li{
+    margin-bottom: 10px;
+}
+aside.sidebar-widget li a, aside.sidebar-widget li a:hover{
+    color: #008fd1;
+    text-decoration: none;
+}
