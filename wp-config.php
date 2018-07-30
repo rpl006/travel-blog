@@ -19,17 +19,36 @@
  */
 
 // ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define('DB_NAME', 'travel_blog');
 
-/** MySQL database username */
-define('DB_USER', 'root');
+if(file_exists(dirname(__FILE__) . '/local.php')){
+	/**Local database settings
+		/** The name of the database for WordPress */
+		define('DB_NAME', 'travel_blog');
 
-/** MySQL database password */
-define('DB_PASSWORD', 'mysql');
+		/** MySQL database username */
+		define('DB_USER', 'root');
 
-/** MySQL hostname */
-define('DB_HOST', 'localhost');
+		/** MySQL database password */
+		define('DB_PASSWORD', 'mysql');
+
+		/** MySQL hostname */
+		define('DB_HOST', 'localhost');
+}else{
+	/**Live Database Settings
+	/** The name of the database for WordPress */
+		define('DB_NAME', 'raml3549_travel_blog_data');
+
+		/** MySQL database username */
+		define('DB_USER', 'raml3549_travel');
+
+		/** MySQL database password */
+		define('DB_PASSWORD', 'TbveH6AA*S-q');
+
+		/** MySQL hostname */
+		define('DB_HOST', 'localhost');
+}
+
+
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
@@ -46,14 +65,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'rkY27*Xu$nny..ug@(kX`Z:eoM|%]XI6=(a^qLC%ka+pRvLm1uW2A)zDDU9[s@?W');
-define('SECURE_AUTH_KEY',  'ksQr_io-MhRn&>yZ)FflpHgN(0i?G@M-0A@004)uL};,}jK/m:59J[jl)ys{Kuuj');
-define('LOGGED_IN_KEY',    ',4{$q88/v0T?ja`TkvL*%s(msU[P{-4|yTU|[fr<LS@j<7E}rfCe*i/Uo^g`D>4b');
-define('NONCE_KEY',        '` o5Xk3tex_S=YZ:0SmO3x?=GhF]^rPd~/$5mE~jxOFxJzxOsHoKfOXT_bl_~(xV');
-define('AUTH_SALT',        'y{KNTj+CLzc!(}J_% ((2WCw8jq5*RRs*R2Pk3DjsTWDrqU0@m5mAkM.:?.Qyu+V');
-define('SECURE_AUTH_SALT', 'q$r}D.mbFnrF(%)2-X:%Vqu8.qs-yN:SE<5>047j!iv;a+<G=vy: x}q?3Z^[/9Z');
-define('LOGGED_IN_SALT',   'oY]:w!VN!6z.}Yz!E}1Ys1z{2<)yVyI/_ .I^m+~lIH~8< &ISs+PnhPo^`.o)A6');
-define('NONCE_SALT',       'fkrWie&<,RgpV;v](szKr_a:Ahczam0S[kY&5TCY3I~gq.e} Bm{}h4O3]]9-ZxA');
+define('AUTH_KEY',         '-v1OW`}6DU[sVYT,]w^fu=jj|7$$RKA+}9 &)2WUpn+wfFk`|1)c?##|jA.d,Vep');
+define('SECURE_AUTH_KEY',  '+Y:3Zh{cc _ @~fclK`R-QW:VE{eNW!xu|;H;M>E,]+&m[gHbOeb#Wm&@AyHGAY9');
+define('LOGGED_IN_KEY',    '-g+xoz[8howaZ4]v]6nN?YJZ <1Jkby%c@0WH6^:z d|7|R2y)D)LNa-?T:Ulw9i');
+define('NONCE_KEY',        ')3|v.,DxnuZx(6/HZ7w639W]zuHKjMP$Nd%KBlMS!^?GzW!S.ZT{JyEhh.%G0~1^');
+define('AUTH_SALT',        '!Nn]s(+/ LezvOj4}&[jlUL2?~w<h}+dm][P,.0FXCgC q]-*Km,HBR_||O#)nu$');
+define('SECURE_AUTH_SALT', 'UGcN4L+ODmmPcRVJ3}xi$L?sk~3J>{^[u@h8wuteYG|Tj3ey1)!c/6E<Y8ops6=E');
+define('LOGGED_IN_SALT',   '=5Yz(l[6N-1-dPZI2GU)y2>WTGp?-Jc)Wa;ZDmKtm)kk)-IVVI)cL?PFIzIup.UB');
+define('NONCE_SALT',       'hY&rnzR{[8Cbt$|>u@.tooO4c|D&s*K-EY{/l*U$TTH6f$>cf>h^|#z^rll?zab,');
 
 /**#@-*/
 
