@@ -1,3 +1,6 @@
+footer h3{
+    color:#eca300;
+}
 footer{
     background-color: #008fd1;
     padding: 10px 0 0 0;
@@ -9,7 +12,7 @@ footer a{
     color: #ffffff;
 }
 footer a:hover{
-    color: #ffffff;
+    color:#ffffff;
     text-decoration: none;
 }
 
@@ -49,7 +52,15 @@ footer .site-info a{
     content: '\f08e';
     -webkit-font-smoothing: antialiased;
 }
+#social li a:hover{
+    color: #db018d;
+}
+
 #social li a[href*="facebook.com"]::before{content: '\f082';}
 #social li a[href*="twitter.com"]::before{content: '\f0d4';}
 #social li a[href*="plus.google.com"]::before{content: '\f081';}
 #social li a[href*="youtube.com"]::before{content: '\f16a';}
+
+.site-info a{
+    color: #eca300;
+}

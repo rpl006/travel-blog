@@ -19,7 +19,7 @@ nav.main-navigation ul li a{
     color: #fff;
     text-transform: uppercase;
     font-size: 16px;
-    padding: 10px 0;
+    
 }
 nav.main-navigation ul li a:hover{
    background-color: transparent;
@@ -85,5 +85,25 @@ div.page-title h1 span{
     }
     div.page-title{
         margin-top: 100px;
+    }
+}
+
+nav.main-navigation ul li.current_page_item, nav.main-navigation ul li.current_page_parent{
+    background-color: #004d70;
+}
+
+
+
+@media (min-width: 768px){
+    nav.main-navigation ul li.current_page_item, nav.main-navigation ul li.current_page_parent{
+        border-bottom:   3px solid #db018d;
+        background-color: transparent;
+    }
+    nav.main-navigation ul li a{
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 16px;
+        padding: 10px 0 0 0;
+        
     }
 }

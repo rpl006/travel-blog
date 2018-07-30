@@ -31,7 +31,7 @@ nav.main-navigation ul li a{
     color: #fff;
     text-transform: uppercase;
     font-size: 16px;
-    padding: 10px 0;
+    
 }
 
 nav.main-navigation ul li a:hover{
@@ -101,6 +101,24 @@ div.page-title h1 span{
     }
     div.page-title{
         margin-top: 100px;
+    }
+}
+
+nav.main-navigation ul li.current_page_item, nav.main-navigation ul li.current_page_parent{
+    background-color: #004d70;
+}
+
+@media (min-width: 768px){
+    nav.main-navigation ul li.current_page_item, nav.main-navigation ul li.current_page_parent{
+        border-bottom:   3px solid #db018d;
+        background-color: transparent;
+    }
+    nav.main-navigation ul li a{
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 16px;
+        padding: 10px 0 0 0;
+        
     }
 }
 
@@ -203,6 +221,10 @@ section.categories div.category a:hover{
     text-decoration: none;
 }
 
+footer h3{
+    color:#eca300;
+}
+
 footer{
     background-color: #008fd1;
     padding: 10px 0 0 0;
@@ -216,7 +238,7 @@ footer a{
 }
 
 footer a:hover{
-    color: #ffffff;
+    color:#ffffff;
     text-decoration: none;
 }
 
@@ -261,6 +283,10 @@ footer .site-info a{
     -webkit-font-smoothing: antialiased;
 }
 
+#social li a:hover{
+    color: #db018d;
+}
+
 #social li a[href*="facebook.com"]::before{content: '\f082';}
 
 #social li a[href*="twitter.com"]::before{content: '\f0d4';}
@@ -268,6 +294,10 @@ footer .site-info a{
 #social li a[href*="plus.google.com"]::before{content: '\f081';}
 
 #social li a[href*="youtube.com"]::before{content: '\f16a';}
+
+.site-info a{
+    color: #eca300;
+}
 
 .alignleft{
     float: left;
