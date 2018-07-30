@@ -21,8 +21,10 @@
                          <span class="icon-bar"></span>
                          <span class="icon-bar"></span>
                     </button>
-                    
-                    <img src="<? echo get_stylesheet_directory_uri() ?>/img/logo.png" class="img-responsive">
+
+                    <a href="<?php echo esc_url( home_url('/')) ?>">
+                        <img src="<? echo get_stylesheet_directory_uri() ?>/img/logo.png" class="img-responsive">
+                    </a>
                 </div>
                 <div class="navbar-right">
                     <?php 
