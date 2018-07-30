@@ -48,6 +48,11 @@
                     <h1 class="title">
                         <span><?php echo $description ?></span>
                     </h1>
+                    <?php elseif(is_category()): { ?>
+                        <h1 class="title">
+                        <span><?php single_cat_title(); ?></span>
+                        </h1> 
+                   <?php } ?>
                     <?php else: ?>
                         <h1 class="title">
                         <span><?php echo the_title(); ?></span>
