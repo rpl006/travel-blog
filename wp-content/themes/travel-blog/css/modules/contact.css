@@ -1,0 +1,31 @@
+div.contact-page{
+    margin-top: 50px;
+}
+
+.nf-form-fields-required{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+nf-fields-wrap textarea{
+    height: 200px !important;
+    border: none;
+}
+nf-fields-wrap input{
+    height: 40px !important;
+    border: none !important;
+}
+
+.nf-field-label label{
+    font-weight: normal !important;
+}
+.nf-field-element input[type=button]{
+    background-color: #0088c6;
+    padding: 10px 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+
+}
+
