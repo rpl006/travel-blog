@@ -8,8 +8,12 @@
 </head>
 <body <?php body_class() ?>>
 
-<?php $featured = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );?>
-<?php $featuredImage = $featured[0]; ?>
+
+<?php $page_blog = get_option('page_for_posts');
+      $id_image = get_post_thumbnail_id( $page_blog );
+      $featured = wp_get_attachment_image_src( $id_image, 'full' );
+      $featuredImage = $featured[0]; 
+?>
 <header class="site-header" style="background-image: url(<?php echo $featuredImage ?>)">
     <nav class="main-navigation">
     <div class="container">
