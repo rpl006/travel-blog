@@ -278,3 +278,19 @@ footer .site-info a{
     float: right;
     margin-left: 20px; 
 }
+
+.page-template-page-sidebar section.content{
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.page-template-page-sidebar footer{
+    margin: 0;
+}
+
+.page-template-page-sidebar .content-page{
+    box-shadow: 768px 0 0 #e6e6e6; 
+    padding: 20px;
+    text-align: justify;
+} 
