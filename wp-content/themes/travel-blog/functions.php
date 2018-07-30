@@ -37,6 +37,16 @@ function site_styles(){
             'before_title'=> '<h3 class="widget-title">',
             'after_title'=> '</h3>'
         ));
+
+        register_sidebar( array(
+            'name'=> ('Sidebar Widget'),
+            'id'=>'sidebar_widget',
+            'description' =>'Widget For the Footer',
+            'before_widget'=> '<div id="%1$s" class="widget %2$s">',
+            'after_widget' => '</div>',
+            'before_title'=> '<h3 class="widget-title">',
+            'after_title'=> '</h3>'
+        ));
     }
 
     add_action( 'widgets_init', 'site_widgets');
