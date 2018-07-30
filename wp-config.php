@@ -42,7 +42,7 @@ if(file_exists(dirname(__FILE__) . '/local.php')){
 		define('DB_USER', 'raml3549_travel');
 
 		/** MySQL database password */
-		define('DB_PASSWORD', 'TbveH6AA*S-q');
+		define('DB_PASSWORD', 'Lz8*+L3!{m*k');
 
 		/** MySQL hostname */
 		define('DB_HOST', 'localhost');
