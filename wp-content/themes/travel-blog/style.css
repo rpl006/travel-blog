@@ -54,7 +54,7 @@ nav.main-navigation ul li a:hover{
 }
 
 .site-header{
-    height: 600px;
+    height: 500px;
     background-repeat: no-repeat;
     background-position: center center;
     padding-top: 20px;
@@ -268,3 +268,13 @@ footer .site-info a{
 #social li a[href*="plus.google.com"]::before{content: '\f081';}
 
 #social li a[href*="youtube.com"]::before{content: '\f16a';}
+
+.alignleft{
+    float: left;
+    margin-right: 20px;
+}
+
+.alignright{
+    float: right;
+    margin-left: 20px; 
+}
