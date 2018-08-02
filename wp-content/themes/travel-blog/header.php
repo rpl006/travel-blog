@@ -3,7 +3,7 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="Ram Lamichhan">
+    <meta name="author" content="Ram Lamichhane">
     <meta name="copyright" content="Ram Lamichhane">
     
     <?php  wp_head();?>
