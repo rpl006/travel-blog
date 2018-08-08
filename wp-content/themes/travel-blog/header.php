@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="Ram Lamichhane">
     <meta name="copyright" content="Ram Lamichhane">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <?php  wp_head();?>
 </head>
@@ -16,13 +17,15 @@
     <nav class="main-navigation">
     <div class="container">
             <div class="row">
+           
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-span="false">
-                         <span class="sr-only">Toggle Naviagtion</span>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-span="false">
+                         <span class="sr-only">Toggle Navigation</span>
                          <span class="icon-bar"></span>
                          <span class="icon-bar"></span>
                          <span class="icon-bar"></span>
                     </button>
+                    
 
                     <a href="<?php echo esc_url( home_url('/')) ?>">
                         <img src="<? echo get_stylesheet_directory_uri() ?>/img/logo.png" class="img-responsive">
@@ -38,6 +41,7 @@
                         ));
                     ?>
                 </div>
+                
             </div><!--row-->
         </div><!--container-->
     </nav><!--.main-navigation-->

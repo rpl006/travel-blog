@@ -107,3 +107,23 @@ nav.main-navigation ul li.current_page_item, nav.main-navigation ul li.current_p
         
     }
 }
+
+@media(max-width: 480px){
+    div.page-title h1{
+        color: #db018d;
+        background-color: transparent;
+        font-size: 30px;
+    }
+
+    div.page-title h1 span{
+        left: 0;
+    }
+    div.page-title{
+        border-left: none;
+        margin: 60px auto;
+    }
+    .site-header{
+        padding-top: 0;
+        height: unset;
+    }
+}
