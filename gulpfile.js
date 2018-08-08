@@ -11,7 +11,6 @@ cssImport = require('postcss-import'),
 mixins = require('postcss-mixins'),
 colorFunctions = require('postcss-color-function');
 
-
 gulp.task('styles', function() {
   return gulp.src(settings.themeLocation + 'css/style.css')
     .pipe(postcss([cssImport, mixins, cssvars, nested, rgba, colorFunctions, autoprefixer]))
